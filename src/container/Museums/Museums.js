@@ -77,8 +77,8 @@ class Museums extends Component {
 
             const day =  mus.openingHours[this.props.startDate.getDay()];
 
-            return day.startTime.slice(0,2) >= this.props.startDate.getHours()
-               && day.endTime.slice(0,2) <= this.props.endDate.getHours()
+            return !(this.props.endDate.getHours() < day.startTime.slice(0,2) ||
+                this.props.startDate.getHours() > day.endTime.slice(0,2))
 
         }).map((mus) => {
 
